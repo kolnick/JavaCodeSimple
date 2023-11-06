@@ -18,14 +18,14 @@ import java.util.Set;
 public class RedisTest {
     private JedisPool jedisPool;
 
-    private String host = "192.168.0.242";
+    private String host = "192.168.1.5";
 
     private int port = 6379;
 
     private int timeout = 3000;
-    public static final String password = "fa114b13af242f0ccbf93cf07aecc74d";
+    public static final String password = "";
 
-    public static final int index = 1;
+    public static final int index = 0;
 
     @Before
     public void before() {
@@ -36,7 +36,8 @@ public class RedisTest {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxIdle(10000);
         jedisPoolConfig.setMaxWaitMillis(5000);
-        return new JedisPool(jedisPoolConfig, host, port, timeout, password, index);
+        return new JedisPool(jedisPoolConfig, host, port);
+        // return new JedisPool(jedisPoolConfig, host, port, timeout, password, index);
     }
 
     public Jedis getConnection() {
@@ -123,7 +124,6 @@ public class RedisTest {
             System.out.println(key + ":" + redis.hmget("user", key));
         }
     }
-
 
 
 }
