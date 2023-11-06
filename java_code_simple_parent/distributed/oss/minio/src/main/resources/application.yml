@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      enabled: true #开启文件上传
+      max-file-size: 100MB
+      max-request-size: 1000MB
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+#minio配置
+minio:
+  url: http://192.168.40.130:9000  #对象存储服务的URL
+  accessKey: LT6SysPOQ15Di6lX #Access key账户
+  secretKey: yKuZLLaZBgmgi2FyPsp7CQt1gr1D4iUY  #Secret key密码

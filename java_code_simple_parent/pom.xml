@@ -19,6 +19,9 @@
         <module>java-window</module>
         <module>framework</module>
         <module>search</module>
+        <module>network</module>
+        <module>bigdata</module>
+        <module>distributed</module>
     </modules>
 
     <properties>
