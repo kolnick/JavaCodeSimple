@@ -1,0 +1,21 @@
+package com.caochaojie.config.data
+
+import lombok.Data;
+${@com.caochaojie.beetl.Field}
+
+@Data
+public class ${entityName}Data implements IData{
+
+
+<%
+    for(field in list){
+        /**
+         * @field.comment()
+         */
+     private @field.type() @field.name();
+   }
+
+%>
+}
+
+

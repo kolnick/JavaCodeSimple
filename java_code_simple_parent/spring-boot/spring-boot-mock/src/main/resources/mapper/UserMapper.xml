@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caochaojie.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.caochaojie.mock.po.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name ,sex
+    </sql>
+
+    <resultMap id="baseMap" type="com.caochaojie.mock.mapper.result.UserResult">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+    </resultMap>
+
+
+    <select id="listAllUser" resultMap="baseMap">
+        select id ,name,sex from user
+    </select>
+
+
+</mapper>

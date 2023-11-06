@@ -1,0 +1,35 @@
+spring:
+    datasource:
+        #   数据源基本配置
+        username: root
+        password: admin123
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:7766/course_db?serverTimezone=GMT%2B8
+        type: com.alibaba.druid.pool.DruidDataSource
+        # Initialize the datasource with available DDL and DML scripts.
+        initialization-mode: always
+    main:
+        allow-bean-definition-overriding: true
+    shardingsphere:
+        datasource:
+            m1:
+                driver-class-name: com.mysql.cj.jdbc.Driver
+                password: admin123
+                type: com.alibaba.druid.pool.DruidDataSource
+                url: jdbc:mysql://localhost:7766/course_db?serverTimezone=GMT%2B8
+                username: root
+            names: m1
+        props:
+            sql:
+                show: true
+        sharding:
+            tables:
+                course:
+                    actual-data-nodes: m1.course_$->{1..2}
+                    key-generator:
+                        column: cid
+                        type: SNOWFLAKE
+                    table-strategy:
+                        inline:
+                            algorithm-expression: course_$->{cid % 2 + 1}
+                            sharding-column: cid

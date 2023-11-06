@@ -1,0 +1,8 @@
+server:
+  port: 8889
+
+spring:
+  output:
+    ansi:
+      #日志输出 彩色
+      enabled: always

@@ -1,0 +1,25 @@
+# 开放健康检查接口
+
+server:
+  port: 8001
+spring:
+  application:
+    # 在spring-boot-admin 上的的显示名称
+    name: admin-develop
+  boot:
+    admin:
+      client:
+        url: http://localhost:8000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  security:
+    enabled: false

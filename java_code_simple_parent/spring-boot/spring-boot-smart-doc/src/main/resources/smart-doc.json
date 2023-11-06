@@ -1,0 +1,37 @@
+{
+  "serverUrl": "http://localhost:17150",
+  "outPath": "src/main/resources/static/doc",
+  "isStrict": false,
+  "#####": "allInOne:true  此参数表示记录文档变更的记录",
+  "createDebugPage": false,
+  "packageFilters": "com.caochaojie.smartdoc.controller",
+  "style": "xt256",
+  "showAuthor": true,
+  "inlineEnum": true,
+  "revisionLogs": [
+    {
+      "version": "文档版本号",
+      "version": "1.0",
+      "_revisionTime": "文档修订时间",
+      "revisionTime": "2020-12-31 10:30",
+      "_status": "update,create可选",
+      "status": "update",
+      "author": "author",
+      "_remarks": "变更描述",
+      "remarks": "desc"
+    }
+  ],
+  "errorCodeDictionaries": [
+    {
+      //错误码列表，没有需求可以不设置
+      "title": "title",
+      "enumClassName": "com.caochaojie.smartdoc.enums.ErrorCodeEnum",
+      //错误码枚举类
+      "codeField": "code",
+      //错误码的code码字段名称
+      "descField": "message"
+      //错误码的描述信息对应的字段名
+    }
+  ]
+}
+

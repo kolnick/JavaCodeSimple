@@ -1,0 +1,21 @@
+server:
+   port: 9091
+spring:
+   kafka:
+      #============== kafka ===================
+      # 指定kafka server的地址，集群配多个，中间，逗号隔开
+      bootstrap-servers: 192.168.40.134:9092
+      consumer:
+         group-id: group_id
+         auto-offset-reset: earliest
+         key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+         value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      producer:
+         key-serializer: org.apache.kafka.common.serialization.StringSerializer
+         value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+         retries: 1   # 重试次数
+         acks: -1   #应答级别： 多少分区副本备份完成时向生产者发送ack确认
+         batch-size: 16384  # 批量大小
+         buffer-memory: 3354432  # 生产端大小
+
+

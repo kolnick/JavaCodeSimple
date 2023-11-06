@@ -1,0 +1,10 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: order-sentinel
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080

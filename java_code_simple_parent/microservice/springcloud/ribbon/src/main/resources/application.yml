@@ -1,0 +1,30 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      server-addr: http://192.168.40.130:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public #相同命名空间
+        #ip: 112.10.94.248
+        ephemeral: false  # 永久实例 ,宕机了也不会从服务中删除
+        #service: #{spring.application.name}
+        #group: 默认DEFAULT_GROUP #分组、
+        #weight:  权重 取值范围1到100 ,数值越大,权重越大
+        #network-interface:  当IP未配置时，注册的IP为此网卡所对应的地址。
+        #access-key:   当要上阿里云时用的账号
+        #secret-key:  当要上阿里云时用的密码
+        #metadata:  键值对格式   version=1
+
+stock-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.caochaojie.springcloud.ribbon.rule.CustomRule
+ribbon:
+  eager-load:
+    clients: stock-service
+    enabled: true

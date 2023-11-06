@@ -1,0 +1,11 @@
+mail:
+    fromMail:
+        addr: kolnick@163.com
+spring:
+    application:
+        name: spring-boot-mail
+    mail:
+        default-encoding: UTF-8
+        host: smtp.163.com
+        password: kolnick1991
+        username: kolnick@163.com

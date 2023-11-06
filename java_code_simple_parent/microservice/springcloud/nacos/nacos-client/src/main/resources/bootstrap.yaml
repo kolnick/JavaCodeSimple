@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 192.168.40.130:8848
+      username: nacos
+      password: nacos
+      config:
+        server-addr: 192.168.40.130:8848
+        file-extensuion: yaml
+        group: ccj
