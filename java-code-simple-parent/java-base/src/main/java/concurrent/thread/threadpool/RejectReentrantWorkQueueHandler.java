@@ -1,4 +1,4 @@
-package concurrent.threadpool;
+package concurrent.thread.threadpool;
 
 import lombok.extern.slf4j.Slf4j;
 

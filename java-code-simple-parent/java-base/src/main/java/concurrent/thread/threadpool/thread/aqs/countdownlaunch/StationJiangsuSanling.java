@@ -1,11 +1,11 @@
-package concurrent.threadpool.thread.aqs.countdownlaunch;
+package concurrent.thread.threadpool.thread.aqs.countdownlaunch;
 
 import java.util.concurrent.CountDownLatch;
 
-public class StationShandongChangchuan extends DangerCenter {
+public class StationJiangsuSanling extends DangerCenter {
 
-	public StationShandongChangchuan(CountDownLatch countDown) {
-		super(countDown, "山东长川调度站");
+	public StationJiangsuSanling(CountDownLatch countDown) {
+		super(countDown, "江苏三林调度站");
 	}
 
 	@Override
@@ -13,7 +13,7 @@ public class StationShandongChangchuan extends DangerCenter {
 		System.out.println("正在检查 [" + this.getStation() + "]...");
 		
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

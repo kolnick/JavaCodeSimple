@@ -1,4 +1,4 @@
-package concurrent.threadpool;
+package concurrent.thread.threadpool;
 
 /**
  * @author caochaojie

@@ -1,6 +1,6 @@
 package threadpool;
 
-import concurrent.threadpool.RejectReentrantWorkQueueHandler;
+import concurrent.thread.threadpool.RejectReentrantWorkQueueHandler;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
