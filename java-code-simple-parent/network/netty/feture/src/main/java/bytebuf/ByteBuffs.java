@@ -8,9 +8,6 @@ import static io.netty.util.internal.StringUtil.NEWLINE;
 
 /**
  * Netty ByteBuf 工具类
- *
- * @author sunchaser admin@lilu.org.cn
- * @since JDK8 2022/6/16
  */
 @Slf4j
 public class ByteBuffs {
@@ -27,6 +24,6 @@ public class ByteBuffs {
                 .append(buf.capacity())
                 .append(NEWLINE);
         appendPrettyHexDump(append, buf);
-        LOGGER.info(append.toString());
+        log.info(append.toString());
     }
 }

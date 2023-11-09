@@ -12,12 +12,12 @@ public class TestEventLoop {
         // 创建事件循环组
         NioEventLoopGroup group = new NioEventLoopGroup(2);
         // next()方法获取下一个事件循环对象（轮询）
-        LOGGER.info("next: {}", group.next());
-        LOGGER.info("next: {}", group.next());
-        LOGGER.info("next: {}", group.next());
-        LOGGER.info("next: {}", group.next());
-        LOGGER.info("next: {}", group.next());
-        LOGGER.info("next: {}", group.next());
+        log.info("next: {}", group.next());
+        log.info("next: {}", group.next());
+        log.info("next: {}", group.next());
+        log.info("next: {}", group.next());
+        log.info("next: {}", group.next());
+        log.info("next: {}", group.next());
 
         // 执行普通任务
         group.next()
@@ -27,13 +27,13 @@ public class TestEventLoop {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    LOGGER.debug("ok");
+                    log.debug("ok");
                 });
 
         // 执行定时任务（长连接时用来心跳保活）
         group.next()
-                .scheduleAtFixedRate(() -> LOGGER.debug("schedule ok"), 0, 1, TimeUnit.SECONDS);
+                .scheduleAtFixedRate(() -> log.debug("schedule ok"), 0, 1, TimeUnit.SECONDS);
 
-        LOGGER.debug("main ok");
+        log.debug("main ok");
     }
 }

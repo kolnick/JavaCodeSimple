@@ -13,8 +13,6 @@ import java.nio.charset.StandardCharsets;
 /**
  * EventLoop服务端
  *
- * @author sunchaser admin@lilu.org.cn
- * @since JDK8 2022/6/15
  */
 @Slf4j
 public class EventLoopServer {
@@ -35,7 +33,7 @@ public class EventLoopServer {
                                     @Override
                                     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                         ByteBuf buf = (ByteBuf) msg;
-                                        LOGGER.debug("msg: {}", buf.toString(StandardCharsets.UTF_8));
+                                        log.debug("msg: {}", buf.toString(StandardCharsets.UTF_8));
                                         // 传递给后面的handler
                                         super.channelRead(ctx, msg);
                                     }
@@ -44,7 +42,7 @@ public class EventLoopServer {
                                     @Override
                                     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                         ByteBuf buf = (ByteBuf) msg;
-                                        LOGGER.debug("msg: {}", buf.toString(StandardCharsets.UTF_8));
+                                        log.debug("msg: {}", buf.toString(StandardCharsets.UTF_8));
                                     }
                                 });
                     }

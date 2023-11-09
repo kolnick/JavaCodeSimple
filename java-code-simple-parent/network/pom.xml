@@ -14,5 +14,6 @@
     <modules>
         <module>netty</module>
         <module>protocol</module>
+        <module>netty/ssl</module>
     </modules>
 </project>

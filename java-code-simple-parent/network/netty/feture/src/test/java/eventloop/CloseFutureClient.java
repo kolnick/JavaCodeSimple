@@ -34,7 +34,7 @@ public class CloseFutureClient {
                 })
                 .connect(new InetSocketAddress("127.0.0.1", 8080));
         Channel channel = channelFuture.sync().channel();
-        LOGGER.debug("channel: {}", channel);
+        log.debug("channel: {}", channel);
         new Thread(() -> {
             Scanner scanner = new Scanner(System.in);
             while (true) {
@@ -42,7 +42,7 @@ public class CloseFutureClient {
                 if ("q".equals(line)) {
                     channel.close();// close方法是异步非阻塞，由NioEventLoop中的线程进行关闭
                     // 关闭后执行一些清理操作
-                    LOGGER.debug("关闭后执行的一些操作");// 放在这里不能确保已经close完成了。
+                    log.debug("关闭后执行的一些操作");// 放在这里不能确保已经close完成了。
                     break;
                 }
                 channel.writeAndFlush(line);
@@ -52,7 +52,7 @@ public class CloseFutureClient {
         // 优雅关闭channel：CloseFuture对象
         // 方法一：同步处理关闭
         ChannelFuture closeFuture = channel.closeFuture();
-        LOGGER.debug("等待关闭...");
+        log.debug("等待关闭...");
         /*
         closeFuture.sync();// 阻塞等待NioEventLoop中的线程完成关闭
         // 优雅关闭NioEventLoop线程
@@ -63,7 +63,7 @@ public class CloseFutureClient {
         // 方法二：异步处理关闭
         closeFuture.addListener((ChannelFutureListener) future -> {
             // 在NioEventLoop线程中执行
-            LOGGER.debug("优雅关闭后执行的一些操作...");
+            log.debug("优雅关闭后执行的一些操作...");
             // 优雅关闭NioEventLoop线程，让主线程也停止。
             group.shutdownGracefully();
         });

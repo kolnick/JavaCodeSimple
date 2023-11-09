@@ -14,8 +14,6 @@ import java.net.InetSocketAddress;
 import java.util.Objects;
 
 /**
- * @author sunchaser admin@lilu.org.cn
- * @since JDK8 2022/6/15
  */
 @Slf4j
 public class EventLoopClient {
@@ -43,17 +41,17 @@ public class EventLoopClient {
         */
 
         // 方法二：异步获取连接对象channel
-        LOGGER.debug("channelFuture: {}", channelFuture);
+        log.debug("channelFuture: {}", channelFuture);
         channelFuture.addListener((ChannelFutureListener) future -> {
             // lambda中传递的future和channelFuture对象是同一个
-            LOGGER.debug("future: {}", future);
+            log.debug("future: {}", future);
             channel = future.channel();
             if (Objects.nonNull(channel) && channel.isActive()) {
-                LOGGER.info("Netty EventLoopClient started. {}", channel);
+                log.info("Netty EventLoopClient started. {}", channel);
             }
         });
 
-        LOGGER.debug("channel: {}", channel);
+        log.debug("channel: {}", channel);
         channel.writeAndFlush("Hello World!");// 往服务端发数据
     }
 }
