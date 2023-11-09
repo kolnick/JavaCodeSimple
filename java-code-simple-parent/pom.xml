@@ -50,7 +50,7 @@
         <disruptor.verion>3.4.4</disruptor.verion>
         <hadoop.version>3.1.4</hadoop.version>
         <thrift.version>0.14.1</thrift.version>
-        <netty.version>4.1.33.Final</netty.version>
+        <netty.version>4.1.79.Final</netty.version>
         <commons-com.caochaojie.collection.version>3.2.2</commons-com.caochaojie.collection.version>
         <flink.version>1.15.0</flink.version>
         <hutool.version>5.8.4</hutool.version>
