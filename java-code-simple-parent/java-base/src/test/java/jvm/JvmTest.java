@@ -15,6 +15,7 @@ public class JvmTest {
         Runtime.getRuntime().addShutdownHook(new Thread(new MyThread()));
         System.exit(11);
     }
+
     class MyThread implements Runnable {
         @Override
         public void run() {
@@ -22,6 +23,10 @@ public class JvmTest {
         }
     }
 
+
+    /**
+     * jvm基础性信息
+     */
 
     @Test
     public void jvmInfo() {
@@ -34,6 +39,9 @@ public class JvmTest {
         System.out.println("JVM Input Arguments: " + runtimeMXBean.getInputArguments());
     }
 
+    /**
+     * 内存使用情况
+     */
     @Test
     public void memory() {
         MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
@@ -44,6 +52,10 @@ public class JvmTest {
             System.out.println("Usage: " + poolMXBean.getUsage());
         }
     }
+
+    /**
+     * 线程管理系统
+     */
 
     @Test
     public void threadMXBean() {
@@ -58,6 +70,10 @@ public class JvmTest {
         }
     }
 
+    /**
+     * 操作系统信息
+     */
+
     @Test
     public void osInfo() {
         OperatingSystemMXBean osMXBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
@@ -67,4 +83,30 @@ public class JvmTest {
         System.out.println("Operating System Architecture: " + osMXBean.getArch());
         System.out.println("System Load Average: " + osMXBean.getSystemLoadAverage());
     }
+
+    /***
+     * 获取类加载管理信息：
+     */
+    @Test
+    public void classLoad() {
+        ClassLoadingMXBean classLoadingMXBean = ManagementFactory.getClassLoadingMXBean();
+
+        System.out.println("Total Loaded Class Count: " + classLoadingMXBean.getTotalLoadedClassCount());
+        System.out.println("Loaded Class Count: " + classLoadingMXBean.getLoadedClassCount());
+        System.out.println("Unloaded Class Count: " + classLoadingMXBean.getUnloadedClassCount());
+        System.out.println("Is Verbose Class Loading Enabled: " + classLoadingMXBean.isVerbose());
+    }
+
+    /**
+     * 获取垃圾回收管理信息
+     */
+    @Test
+    public void gc() {
+        for (GarbageCollectorMXBean gcMXBean : ManagementFactory.getGarbageCollectorMXBeans()) {
+            System.out.println("Garbage Collector Name: " + gcMXBean.getName());
+            System.out.println("Garbage Collector Collection Count: " + gcMXBean.getCollectionCount());
+            System.out.println("Garbage Collector Collection Time: " + gcMXBean.getCollectionTime());
+        }
+    }
+
 }
