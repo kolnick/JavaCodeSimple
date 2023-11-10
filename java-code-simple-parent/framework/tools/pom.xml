@@ -20,6 +20,7 @@
         <module>excel</module>
         <module>lombok</module>
         <module>guava</module>
+        <module>test</module>
     </modules>
 
 
