@@ -22,7 +22,9 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 5) // 进行 5 次微基准测试，也可用在测试方法上。
 public class JmhTest {
     // JVM 参数和配置
-    @Param({"-XX:+UseParallelGC", "-XX:+UseConcMarkSweepGC", "-XX:+UseG1GC"})
+    @Param({"-Xms1g -Xmx1g -XX:+UseParallelGC",
+            "-Xms2g -Xmx2g -XX:+UseConcMarkSweepGC",
+            "-Xms2g -Xmx2g -XX:+UseG1GC"})
     public String jvmArgs;
     String string = "";
     StringBuilder stringBuilder = new StringBuilder();
