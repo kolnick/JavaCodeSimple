@@ -5,7 +5,6 @@ import com.caochaojie.serializable.impl.Fst;
 import com.caochaojie.serializable.impl.JdkSerialization;
 import com.caochaojie.serializable.impl.KryoSerialization;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 /**
@@ -58,9 +57,4 @@ public class SerializationTest {
         log.info(deserialize.toString());
     }
 
-    @Test
-    public void test() {
-        String join = StringUtils.join(new Object[]{"属性","", "1"}, '|');
-        System.out.println(join);
-    }
 }
