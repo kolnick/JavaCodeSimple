@@ -5,11 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.caochaojie</groupId>
-        <artifactId>tools</artifactId>
+        <artifactId>framework</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>test</artifactId>
+    <artifactId>high-performance</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>agrona</module>
+    </modules>
 
     <dependencies>
         <!--jmh 基准测试 -->

@@ -5,21 +5,27 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.caochaojie</groupId>
-        <artifactId>tools</artifactId>
+        <artifactId>high-performance</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>test</artifactId>
+    <artifactId>agrona</artifactId>
 
     <dependencies>
-        <!--jmh 基准测试 -->
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
+            <groupId>org.agrona</groupId>
+            <artifactId>agrona</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>4.0.0</version>
         </dependency>
     </dependencies>
+
 </project>
