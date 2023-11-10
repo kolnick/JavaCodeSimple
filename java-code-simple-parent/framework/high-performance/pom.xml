@@ -12,7 +12,7 @@
     <artifactId>high-performance</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>agrona</module>
+        <module>memory</module>
     </modules>
 
     <dependencies>

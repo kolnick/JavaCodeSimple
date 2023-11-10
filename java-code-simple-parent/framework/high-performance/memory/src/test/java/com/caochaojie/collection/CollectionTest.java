@@ -23,39 +23,33 @@ public class CollectionTest {
     @Test
     public void listMemory() {
         List<Integer> list = new IntArrayList();
+        List<Integer> jdkList = new ArrayList<>();
+
         int size = 100_0000;
         for (int i = 0; i < size; i++) {
             list.add(i);
+            jdkList.add(i);
         }
         long objectSize = RamUsageEstimator.sizeOf(list);
         System.out.println(objectSize / 1024);
-
-        List<Integer> jdkList = new ArrayList<>();
-
-        for (int i = 0; i < size; i++) {
-            jdkList.add(i);
-        }
         long jdkListSize = RamUsageEstimator.sizeOf(jdkList);
-
         System.out.println(jdkListSize / 1024);
+
     }
 
     @Test
     public void mapMemory() {
         // 创建一个 MutableIntObjectMap 对象
         Int2ObjectHashMap<Object> map = new Int2ObjectHashMap<>();
+        Map<Integer, Object> map2 = new HashMap<>();
         int size = 100_0000;
         for (int i = 0; i < size; i++) {
             // 向 Map 中添加键值对
             map.put(i, "Value " + i);
+            map2.put(i, "Value " + i);
         }
         long objectSize = RamUsageEstimator.sizeOf(map);
         System.out.println(objectSize / 1024);
-
-        Map<Integer, Object> map2 = new HashMap<>();
-        for (int i = 0; i < size; i++) {
-            map2.put(i, "Value " + i);
-        }
         long jdkMapSize = RamUsageEstimator.sizeOf(map2);
         System.out.println(jdkMapSize / 1024);
 

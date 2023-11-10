@@ -19,5 +19,10 @@
         <module>high-performance</module>
     </modules>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+    </dependencies>
 </project>

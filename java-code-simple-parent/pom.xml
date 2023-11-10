@@ -70,7 +70,7 @@
         <protostuff.version>1.6.0</protostuff.version>
         <fst.version>2.57</fst.version>
         <kryo.version>5.4.0</kryo.version>
-        <flatbuffers.java.version>2.0.2</flatbuffers.java.version>
+        <flatbuffers.java.version>2.0.3</flatbuffers.java.version>
         <protobuf-java.version>3.9.0</protobuf-java.version>
         <caffeine.version>2.8.5</caffeine.version>
         <rocketmq-client.version>4.9.4</rocketmq-client.version>
