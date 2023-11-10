@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 测试前需要增加 jvm 参数 不然会报错
+ * -ea --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED
+ *
  * @Author: caochaojie
  * @Date: 2023-11-10 20:21
  */
@@ -47,7 +50,7 @@ public class CollectionTest {
             map.put(i, "Value " + i);
         }
         long objectSize = RamUsageEstimator.sizeOf(map);
-        System.out.println(objectSize/1024);
+        System.out.println(objectSize / 1024);
 
         Map<Integer, Object> map2 = new HashMap<>();
         for (int i = 0; i < size; i++) {
