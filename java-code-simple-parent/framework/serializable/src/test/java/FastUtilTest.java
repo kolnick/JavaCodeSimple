@@ -1,14 +1,13 @@
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMaps;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /**
  * @Author: caochaojie
@@ -16,87 +15,69 @@ import java.util.Map;
  */
 public class FastUtilTest {
 
-
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class Bean {
         private String name;
+        private int age;
+        private List<Integer> list;
+        private List<Map<Integer, Bean>> listMap;
 
-        public Bean() {
-            // Empty constructor required for deserialization
-        }
 
-        public Bean(String name) {
-            this.name = name;
-        }
 
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return "Bean{" +
-                    "name='" + name + '\'' +
-                    '}';
-        }
     }
-
-    public static void main(String[] args) {
-        // 创建一个 Int2ObjectMap 对象
-        Int2ObjectMap<String> intObjectMap = new Int2ObjectOpenHashMap<>();
-        intObjectMap.put(1, "One");
-        intObjectMap.put(2, "Two");
-        intObjectMap.put(3, "Three");
-
-        // 将 Int2ObjectMap 转换为 Map<Integer, Object>
-        Map<Integer, Object> mapToSerialize = new HashMap<>();
-        intObjectMap.forEach((key, value) -> mapToSerialize.put(key, value));
-
-        // 序列化 Map
-        String jsonString = JSON.toJSONString(mapToSerialize);
-        System.out.println("Serialized JSON: " + jsonString);
-
-        // 反序列化 Map
-        Map<Integer, Object> deserializedMap = JSON.parseObject(jsonString, new TypeReference<Map<Integer, Object>>() {
-        });
-        System.out.println("Deserialized Map: " + deserializedMap);
-    }
-
 
     @Test
     public void test() {
 
-        // 创建一个 Int2ObjectMap 对象
-        Int2ObjectOpenHashMap<String> intObjectMap = new Int2ObjectOpenHashMap<>();
-        intObjectMap.put(1, "One");
-        intObjectMap.put(2, "Two");
-        intObjectMap.put(3, "Three");
+        // 创建一个 Int2ObjectOpenHashMap 对象
+        Int2ObjectOpenHashMap<Bean> map = new Int2ObjectOpenHashMap<>();
+        List<Integer> list = Arrays.asList(1, 2, 3, 4);
 
-        // 序列化 Map
-        String jsonString = JSON.toJSONString(intObjectMap);
-        System.out.println("Serialized JSON: " + jsonString);
+        List<Map<Integer, Bean>> listMap = new ArrayList<>();
 
-        Int2ObjectOpenHashMap<String> stringInt2ObjectOpenHashMap = deserializeIntObjectMap(jsonString);
-        System.out.println(stringInt2ObjectOpenHashMap);
+        Map<Integer, Bean> beanMap = new HashMap<>();
+        beanMap.put(1, new Bean("Alice1", 25, list,null));
+        beanMap.put(2, new Bean("Alice2", 25, list, null));
+        beanMap.put(3, new Bean("Alice3", 25, list,null));
+        listMap.add(beanMap);
+
+
+        map.put(1, new Bean("Alice", 25, list,listMap));
+        map.put(2, new Bean("Bob", 30, list,listMap));
+        map.put(3, new Bean("Charlie", 28, list,listMap));
+
+
+        // 使用Gson进行序列化
+        String json = serialize(map);
+        System.out.println("Serialized JSON: " + json);
+
+        // 使用Gson进行反序列化
+        Int2ObjectOpenHashMap<Bean> deserializedMap = deserialize(json);
+        System.out.println("Deserialized Map: " + deserializedMap);
+
     }
 
-    // 序列化 Int2ObjectOpenHashMap
-    private static String serializeIntObjectMap(Int2ObjectOpenHashMap<String> map) {
-        JSONObject jsonObject = new JSONObject();
-        map.forEach((key, value) -> jsonObject.put(String.valueOf(key), value));
-        return jsonObject.toJSONString();
+    // 序列化Int2ObjectOpenHashMap
+    private static String serialize(Int2ObjectOpenHashMap<Bean> map) {
+        Gson gson = new Gson();
+        // 使用TypeToken获取泛型类型信息
+        Type type = new TypeToken<Int2ObjectOpenHashMap<Bean>>() {
+        }.getType();
+        // 执行序列化
+        return gson.toJson(map, type);
     }
 
-
-    // 反序列化 Int2ObjectOpenHashMap
-    private static Int2ObjectOpenHashMap<String> deserializeIntObjectMap(String jsonString) {
-        JSONObject jsonObject = JSON.parseObject(jsonString);
-        Int2ObjectOpenHashMap<String> map = new Int2ObjectOpenHashMap<>();
-        jsonObject.forEach((key, value) -> map.put(Integer.parseInt(key), (String) value));
-        return map;
+    // 反序列化Int2ObjectOpenHashMap
+    private static Int2ObjectOpenHashMap<Bean> deserialize(String json) {
+        Gson gson = new Gson();
+        // 使用TypeToken获取泛型类型信息
+        Type type = new TypeToken<Int2ObjectOpenHashMap<Bean>>() {
+        }.getType();
+        // 执行反序列化
+        return gson.fromJson(json, type);
     }
+
 }
 
