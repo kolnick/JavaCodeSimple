@@ -59,6 +59,13 @@
             <groupId>com.iohao.game</groupId>
             <artifactId>light-jprotobuf</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/it.unimi.dsi/fastutil -->
+        <dependency>
+            <groupId>it.unimi.dsi</groupId>
+            <artifactId>fastutil</artifactId>
+        </dependency>
+
     </dependencies>
 
     <repositories>

@@ -98,6 +98,7 @@
         <jmh.version>1.36</jmh.version>
         <agrona.version>1.19.1</agrona.version>
         <jol.version>0.16</jol.version>
+        <fastutil.version>8.5.12</fastutil.version>
 
     </properties>
 
@@ -120,6 +121,13 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>it.unimi.dsi</groupId>
+                <artifactId>fastutil</artifactId>
+                <version>${fastutil.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.openjdk.jol</groupId>
                 <artifactId>jol-core</artifactId>
