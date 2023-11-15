@@ -75,6 +75,8 @@ public class SerializationTest {
         }
     }
 
+
+
     @Test
     public void testJdk() {
         Person person = new Person(19, "ccj");
