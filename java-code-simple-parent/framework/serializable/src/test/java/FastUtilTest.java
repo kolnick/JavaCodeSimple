@@ -38,15 +38,15 @@ public class FastUtilTest {
         List<Map<Integer, Bean>> listMap = new ArrayList<>();
 
         Map<Integer, Bean> beanMap = new HashMap<>();
-        beanMap.put(1, new Bean("Alice1", 25, list,null));
+        beanMap.put(1, new Bean("Alice1", 25, list, null));
         beanMap.put(2, new Bean("Alice2", 25, list, null));
-        beanMap.put(3, new Bean("Alice3", 25, list,null));
+        beanMap.put(3, new Bean("Alice3", 25, list, null));
         listMap.add(beanMap);
 
 
-        map.put(1, new Bean("Alice", 25, list,listMap));
-        map.put(2, new Bean("Bob", 30, list,listMap));
-        map.put(3, new Bean("Charlie", 28, list,listMap));
+        map.put(1, new Bean("Alice", 25, list, listMap));
+        map.put(2, new Bean("Bob", 30, list, listMap));
+        map.put(3, new Bean("Charlie", 28, list, listMap));
 
 
         // 使用Gson进行序列化
