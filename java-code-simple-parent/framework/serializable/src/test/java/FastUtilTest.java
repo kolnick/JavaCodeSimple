@@ -1,9 +1,7 @@
+import bean.Bean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.junit.Test;
 
 import java.lang.reflect.Type;
@@ -15,18 +13,6 @@ import java.util.*;
  */
 public class FastUtilTest {
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Bean {
-        private String name;
-        private int age;
-        private List<Integer> list;
-        private List<Map<Integer, Bean>> listMap;
-
-
-
-    }
 
     @Test
     public void test() {
