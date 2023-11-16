@@ -1,4 +1,4 @@
-package concurrent.thread.executor;
+package concurrent.executor;
 
 import org.testng.annotations.Test;
 

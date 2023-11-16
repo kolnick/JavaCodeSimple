@@ -1,4 +1,4 @@
-package concurrent.thread.threadpool;
+package concurrent.threadpool;
 
 import org.testng.annotations.Test;
 
