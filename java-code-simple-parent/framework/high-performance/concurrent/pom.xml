@@ -5,21 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.caochaojie</groupId>
-        <artifactId>java-code-simple-parent</artifactId>
+        <artifactId>high-performance</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <packaging>pom</packaging>
-    <artifactId>microservice</artifactId>
 
-    <modules>
-        <module>spring-cloud</module>
-        <module>jdk</module>
-    </modules>
+    <groupId>com.qiuguo</groupId>
+    <artifactId>concurrent</artifactId>
+
 
     <dependencies>
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
         </dependency>
     </dependencies>
 </project>

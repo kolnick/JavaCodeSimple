@@ -22,6 +22,9 @@
         <module>network</module>
         <module>bigdata</module>
         <module>distributed</module>
+        <module>microservice/spring-cloud/nacos/nacos-jdk-client</module>
+        <module>microservice/jdk</module>
+        <module>microservice/jdk/jdk-nacos-client</module>
     </modules>
 
     <properties>
@@ -47,7 +50,7 @@
         <org.apache.commons.version>3.4</org.apache.commons.version>
         <kafka.version>2.6.0</kafka.version>
         <scala.version>2.12</scala.version>
-        <disruptor.verion>3.4.4</disruptor.verion>
+        <disruptor.verion>3.4.2</disruptor.verion>
         <hadoop.version>3.1.4</hadoop.version>
         <thrift.version>0.14.1</thrift.version>
         <netty.version>4.1.79.Final</netty.version>
@@ -99,7 +102,8 @@
         <agrona.version>1.19.1</agrona.version>
         <jol.version>0.16</jol.version>
         <fastutil.version>8.5.12</fastutil.version>
-
+        <HikariCP.version>4.0.3</HikariCP.version>
+        <mybatis.verison>3.4.2</mybatis.verison>
     </properties>
 
 
@@ -122,6 +126,16 @@
     <dependencyManagement>
         <dependencies>
 
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.verison}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${HikariCP.version}</version>
+            </dependency>
             <dependency>
                 <groupId>it.unimi.dsi</groupId>
                 <artifactId>fastutil</artifactId>

@@ -5,26 +5,29 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.caochaojie</groupId>
-        <artifactId>framework</artifactId>
+        <artifactId>mybatis</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>high-performance</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>memory</module>
-        <module>concurrent</module>
-    </modules>
+    <artifactId>mybatis-base</artifactId>
+
 
     <dependencies>
-        <!--jmh 基准测试 -->
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
         </dependency>
+        <!-- mysql驱动 -->
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- pageHelper分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
+
 </project>

@@ -15,7 +15,6 @@ public class TestLike {
         String str = "'";
         String s = StringEscape.escapeString(str);
         System.out.println(s);
-
     }
 
 }

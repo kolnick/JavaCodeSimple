@@ -18,6 +18,8 @@ public class MapTest {
         myMap.put("A", 1);
         myMap.put("B", 2);
         myMap.put("C", 3);
+        Integer d = myMap.remove("D");
+        System.out.println(d);
 
         Iterator<Map.Entry<String, Integer>> iterator = myMap.entrySet().iterator();
 
@@ -37,12 +39,14 @@ public class MapTest {
         System.out.println("Map after iteration and removal: " + myMap);
     }
 
+
     @Test
     public void forRemove() {
         Map<String, Integer> myMap = new HashMap<>();
         myMap.put("A", 1);
         myMap.put("B", 2);
         myMap.put("C", 3);
+
 
         for (Map.Entry<String, Integer> entry : myMap.entrySet()) {
             String key = entry.getKey();

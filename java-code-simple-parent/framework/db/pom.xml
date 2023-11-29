@@ -15,5 +15,6 @@
     <modules>
         <module>mapdb</module>
         <module>mybatis</module>
+        <module>mybatis/mybatis-base</module>
     </modules>
 </project>

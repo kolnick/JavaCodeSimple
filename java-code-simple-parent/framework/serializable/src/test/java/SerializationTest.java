@@ -64,6 +64,7 @@ public class SerializationTest {
         cat.setId(1);
         cat.setFoodMap(Maps.newHashMap(1, 2, 3, 4));
         cat.setPropIdList(Lists.newArrayList(1l, 2l, 3l, 4l));
+
         try {
             // 序列化
             byte[] bb = simpleTypeCodec.encode(cat);
@@ -74,7 +75,6 @@ public class SerializationTest {
             e.printStackTrace();
         }
     }
-
 
 
     @Test

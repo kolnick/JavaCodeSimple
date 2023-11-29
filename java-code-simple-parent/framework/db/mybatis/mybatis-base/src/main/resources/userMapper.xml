@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caochaojie.mybatis.mapper.UserMapper">
+    <resultMap id="userResultMap" type="com.caochaojie.mybatis.bean.User">
+        <result typeHandler="com.caochaojie.mybatis.handler.MyDateTypeHandler" column="regTime" javaType="java.util.Date"
+                jdbcType="VARCHAR"
+                property="regTime"/>
+    </resultMap>
+    <select id="getUser" resultType="com.caochaojie.mybatis.bean.User">
+        select * from user
+    </select>
+
+    <select id="getUser2" resultMap="userResultMap">
+        select * from user
+    </select>
+    <insert id="insertUser" parameterType="com.caochaojie.mybatis.bean.User">
+        INSERT INTO user(username,password,regTime) VALUES (#{username},#{password},#{regTime,javaType=Date,jdbcType=VARCHAR,typeHandler=com.caochaojie.mybatis.handler.MyDateTypeHandler})
+    </insert>
+<!--    <insert id="insertUser2">-->
+<!--        INSERT INTO user4(username,password,regTime) VALUES (#{username},#{password},#{regTime,javaType=Date,jdbcType=VARCHAR})-->
+<!--    </insert>-->
+<!--    <insert id="insertUser3">-->
+<!--        INSERT INTO user4(username,password,regTime) VALUES (#{username},#{password},#{regTime,typeHandler=com.caochaojie.mybatis.handler.MyDateTypeHandler})-->
+<!--    </insert>-->
+
+</mapper>

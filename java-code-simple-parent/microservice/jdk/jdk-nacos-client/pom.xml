@@ -5,21 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.caochaojie</groupId>
-        <artifactId>java-code-simple-parent</artifactId>
+        <artifactId>jdk</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <packaging>pom</packaging>
-    <artifactId>microservice</artifactId>
+    <artifactId>jdk-nacos-client</artifactId>
 
-    <modules>
-        <module>spring-cloud</module>
-        <module>jdk</module>
-    </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-    </dependencies>
 </project>
