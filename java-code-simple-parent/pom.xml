@@ -104,6 +104,7 @@
         <fastutil.version>8.5.12</fastutil.version>
         <HikariCP.version>4.0.3</HikariCP.version>
         <mybatis.verison>3.4.2</mybatis.verison>
+        <fury.version>0.4.0</fury.version>
     </properties>
 
 
@@ -125,6 +126,13 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.furyio</groupId>
+                <artifactId>fury-core</artifactId>
+                <version>${fury.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.aliyun</groupId>
                 <artifactId>alibabacloud-nls_cloud_meta20190228</artifactId>
@@ -374,6 +382,13 @@
             </dependency>
 
             <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <version>5.10.1</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka-clients</artifactId>
                 <version>${kafka.version}</version>
@@ -391,12 +406,6 @@
                 <groupId>com.lmax</groupId>
                 <artifactId>disruptor</artifactId>
                 <version>${disruptor.verion}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.hadoop</groupId>
-                <artifactId>hadoop-client</artifactId>
-                <version>${hadoop.version}</version>
             </dependency>
 
             <dependency>
@@ -493,11 +502,11 @@
                 <version>${flatbuffers.java.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.github.ben-manes.caffeine</groupId>
-                <artifactId>caffeine</artifactId>
-                <version>${caffeine.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.github.ben-manes.caffeine</groupId>-->
+<!--                <artifactId>caffeine</artifactId>-->
+<!--                <version>${caffeine.version}</version>-->
+<!--            </dependency>-->
 
 
             <dependency>

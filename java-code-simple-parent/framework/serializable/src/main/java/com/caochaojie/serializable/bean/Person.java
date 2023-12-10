@@ -2,6 +2,8 @@ package com.caochaojie.serializable.bean;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * @author caochaojie
  * 2022/7/1
@@ -12,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Builder
-public class Person {
+public class Person implements Serializable {
 
     private int age;
     private String name;

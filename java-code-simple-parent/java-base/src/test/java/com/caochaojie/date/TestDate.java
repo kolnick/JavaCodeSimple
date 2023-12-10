@@ -1,9 +1,11 @@
 package com.caochaojie.date;
 
+import cn.hutool.core.date.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.LocalDateTime;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
@@ -32,5 +34,16 @@ public class TestDate {
     public void timeUnit() {
         long time = TimeUnit.HOURS.toMillis(1);
         Assert.assertEquals(time, 60 * 60 * 1000);
+    }
+
+    @Test
+    public void format() {
+        String s = DateUtil.formatLocalDateTime(LocalDateTime.now());
+        System.out.println(s);
+    }
+
+    @Test
+    public void test() {
+
     }
 }

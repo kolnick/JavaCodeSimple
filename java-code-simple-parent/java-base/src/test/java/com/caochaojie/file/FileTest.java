@@ -18,6 +18,5 @@ public class FileTest {
         System.out.println(File.pathSeparator);
         System.out.println(File.pathSeparatorChar);
         System.out.println(File.separatorChar);
-
     }
 }

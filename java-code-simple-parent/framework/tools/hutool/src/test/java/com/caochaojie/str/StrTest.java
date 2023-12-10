@@ -18,4 +18,12 @@ public class StrTest {
             System.out.println(s);
         }
     }
+
+    @Test
+    public void appendTest() {
+        String str = "world";
+        str = StrUtil.addPrefixIfNot(str, "|");
+        str = StrUtil.addSuffixIfNot(str, "|");
+        System.out.println(str);
+    }
 }
