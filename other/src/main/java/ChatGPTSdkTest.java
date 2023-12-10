@@ -23,7 +23,7 @@ import java.util.Map;
  * @Date: 2023-12-10 11:57
  */
 public class ChatGPTSdkTest {
-    private static final String OPENAI_API_KEY = "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";
+    private static final String OPENAI_API_KEY = "YOU_KEY";
 
     @Test
     public void testAudio() throws URISyntaxException, IOException {
